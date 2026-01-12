@@ -6,7 +6,8 @@ import os
 import time
 from datetime import datetime, timedelta
 import numpy as np
-
+import getpass
+user=getpass.getuser()
 # ---------------------- 1. 页面配置与全局CSS样式 ----------------------
 st.set_page_config(
     page_title="WGQ物流数据分析",
@@ -165,12 +166,12 @@ if 'page_load_time' not in st.session_state:
 
 # ---------------------- 2. 定义文件路径 ----------------------
 file_paths = {
-    "承运商列表": r"C:\Users\te589492\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\WGQ承运商.xlsx",
-    "运单数据": r"C:\Users\te589492\OneDrive - TE Connectivity\桌面\WGQ_shipment_processed.xlsx",
-    "车辆到达时间": r"C:\Users\te589492\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\每日车辆到达时间表.xlsx",
-    "预测结果": r"C:\Users\te589492\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\processed_results.xlsx",
-    "Pick效率数据": r"C:\Users\te589492\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\093_统计结果.xlsx",
-    "堆积天数数据": r"C:\Users\te589492\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\VT12.xlsx"
+    "承运商列表": rf"C:\Users\{user}\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\WGQ承运商.xlsx",
+    "运单数据": rf"C:\Users\{user}\OneDrive - TE Connectivity\桌面\WGQ_shipment_processed.xlsx",
+    "车辆到达时间": rf"C:\Users\{user}\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\每日车辆到达时间表.xlsx",
+    "预测结果": rf"C:\Users\{user}\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\processed_results.xlsx",
+    "Pick效率数据": rf"C:\Users\{user}\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\093_统计结果.xlsx",
+    "堆积天数数据": rf"C:\Users\{user}\TE Connectivity\WGQ DC OPREATION TEAM - General\Pick wave\VT12.xlsx"
 }
 
 # ---------------------- 3. 安全读取Excel函数 ----------------------
