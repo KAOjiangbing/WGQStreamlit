@@ -17,208 +17,138 @@ st.set_page_config(
 # 添加全局CSS样式
 st.markdown("""
 <style>
-    /* 全局字体设置 */
+    /* 全局字体设置 - 显著加大加粗 */
     html, body, [class*="css"] {
         font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
-        font-size: 18px !important;
-        font-weight: 600 !important;
+        font-size: 22px !important;  /* 再次增加到22px */
+        font-weight: 800 !important; /* 提升至800最高级别 */
     }
     
-    /* 主标题 */
+    /* 主标题 - 更加醒目 */
     h1 {
-        font-size: 36px !important;
-        font-weight: 800 !important;
+        font-size: 44px !important;  /* 增加到44px */
+        font-weight: 900 !important; /* 使用900最高字重 */
         color: #1E3A8A;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
         text-align: center !important;
         padding-bottom: 15px;
-        border-bottom: 3px solid #3B82F6;
+        border-bottom: 4px solid #3B82F6; /* 边框也加粗 */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* 添加轻微阴影增强立体感 */
     }
     
-    /* 二级标题 */
+    /* 二级标题 - 更加突出 */
     h2, h3, h4 {
-        font-size: 26px !important;
-        font-weight: 800 !important;
+        font-size: 34px !important;  /* 增加到34px */
+        font-weight: 900 !important; /* 提升至900 */
         color: #1E40AF !important;
-        margin-top: 25px;
-        margin-bottom: 15px;
-        padding-bottom: 8px;
-        border-bottom: 2px solid #E5E7EB !important;
-    }
-    
-    /* 按钮文字 */
-    .stButton > button {
-        font-size: 18px !important;
-        font-weight: 700 !important;
-    }
-    
-    /* 数据表格文字 */
-    .stDataFrame {
-        font-size: 17px !important;
-        font-weight: 600 !important;
-    }
-    
-    /* 表格表头样式 */
-    .dataframe-container {
-        background-color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
         margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #E5E7EB !important; /* 边框加粗 */
     }
     
+    /* 按钮文字 - 更加醒目 */
+    .stButton > button {
+        font-size: 22px !important;  /* 增加到22px */
+        font-weight: 800 !important;
+        padding: 12px 24px !important; /* 增加内边距使按钮更大 */
+    }
+    
+    /* 数据表格文字 - 全面提升 */
+    .stDataFrame {
+        font-size: 21px !important;  /* 增加到21px */
+        font-weight: 900 !important;
+    }
+    
+    /* 表格表头样式 - 更加强调 */
     .dataframe-header {
         background-color: #1E3A8A !important;
         color: white !important;
-        font-size: 18px !important;
-        font-weight: 800 !important;
-        padding: 12px !important;
+        font-size: 22px !important;  /* 增加到22px */
+        font-weight: 900 !important; /* 提升至900 */
+        padding: 15px !important;    /* 增加内边距 */
+        letter-spacing: 0.5px;       /* 增加字间距增强可读性 */
     }
     
     .dataframe-content {
-        font-size: 17px !important;
-        font-weight: 600 !important;
-        padding: 10px !important;
+        font-size: 21px !important;  /* 增加到21px */
+        font-weight: 700 !important; /* 提升至700 */
+        padding: 12px !important;    /* 增加内边距 */
     }
     
-    /* 扁长倒计时样式 */
-    .flat-countdown-container {
-        background-color: #F0F9FF;
-        border-radius: 12px;
-        padding: 15px 30px;
-        margin-bottom: 20px;
-        border-left: 6px solid #3B82F6;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 120px;
-    }
-    
-    .countdown-main {
-        flex-grow: 1;
-        text-align: center;
-    }
-    
-    .countdown-left {
-        flex: 0 0 200px;
-        text-align: left;
-    }
-    
-    .countdown-right {
-        flex: 0 0 200px;
-        text-align: right;
-    }
-    
+    /* 扁长倒计时样式 - 极其醒目 */
     .flat-countdown-timer {
-        font-size: 42px !important;
+        font-size: 60px !important;  /* 显著增加到60px */
         font-weight: 900 !important;
         color: #DC2626 !important;
         text-align: center !important;
-        margin: 5px 0 !important;
+        margin: 10px 0 !important;   /* 增加外边距 */
         font-family: 'Courier New', monospace !important;
-        letter-spacing: 2px;
+        letter-spacing: 3px;         /* 增加字间距 */
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* 添加阴影增强立体感 */
     }
     
     .flat-countdown-label {
-        font-size: 20px !important;
-        font-weight: 700 !important;
+        font-size: 26px !important;  /* 增加到26px */
+        font-weight: 800 !important;
         color: #1E40AF !important;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
     }
     
     .flat-countdown-subtext {
-        font-size: 16px !important;
-        font-weight: 600 !important;
+        font-size: 20px !important;  /* 增加到20px */
+        font-weight: 700 !important;
         color: #6B7280 !important;
     }
     
-    .countdown-icon {
-        font-size: 32px;
-        margin-right: 10px;
-    }
-    
-    /* 卡片样式 */
-    .card {
-        background-color: white;
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-left: 5px solid #3B82F6;
-    }
-    
-    /* 到达时间小方格样式 */
+    /* 到达时间小方格样式 - 更加突出 */
     .arrival-time-box {
         background-color: #F0F9FF;
-        border: 2px solid #3B82F6;
-        border-radius: 6px;
-        padding: 4px 8px;
-        font-size: 14px !important;
-        font-weight: 700 !important;
+        border: 3px solid #3B82F6;   /* 边框加粗 */
+        border-radius: 8px;          /* 圆角增大 */
+        padding: 6px 12px;           /* 内边距增加 */
+        font-size: 18px !important;  /* 增加到18px */
+        font-weight: 800 !important;
         color: #1E40AF !important;
         text-align: center;
         margin-right: 10px;
         display: inline-block;
-        min-width: 60px;
+        min-width: 70px;             /* 最小宽度增加 */
     }
     
     .arrival-time-label {
-        font-size: 12px !important;
+        font-size: 16px !important;  /* 增加到16px */
         color: #6B7280 !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         margin-right: 5px;
     }
     
-    /* 自定义表格样式 */
+    /* 自定义表格样式 - 全面提升 */
     .custom-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 17px !important;
-        font-weight: 600 !important;
+        font-size: 21px !important;  /* 增加到21px */
+        font-weight: 700 !important;
     }
     
     .custom-table th {
         background-color: #1E3A8A !important;
         color: white !important;
-        font-size: 18px !important;
-        font-weight: 800 !important;
-        padding: 12px !important;
+        font-size: 22px !important;  /* 增加到22px */
+        font-weight: 900 !important;
+        padding: 15px !important;    /* 增加内边距 */
         text-align: left;
-        border: 1px solid #ddd;
+        border: 2px solid #ddd;      /* 边框加粗 */
+        letter-spacing: 0.5px;
     }
     
     .custom-table td {
-        font-size: 17px !important;
-        font-weight: 600 !important;
-        padding: 10px !important;
+        font-size: 21px !important;  /* 增加到21px */
+        font-weight: 700 !important;
+        padding: 12px !important;    /* 增加内边距 */
         border: 1px solid #ddd;
         background-color: white !important;
-    }
-    
-    .custom-table tr:nth-child(even) {
-        background-color: #f9f9f9 !important;
-    }
-    
-    .custom-table tr:hover {
-        background-color: #f0f0f0 !important;
-    }
-    
-    /* 状态指示器 */
-    .status-indicator {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        margin-right: 8px;
-    }
-    
-    .status-online {
-        background-color: #10B981;
-    }
-    
-    .status-offline {
-        background-color: #EF4444;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -458,15 +388,33 @@ with chart_col1:
             categories=carrier_order, 
             ordered=True
         )
-        status_count = status_count.sort_values("Carrier Name")
         
-        # 状态颜色映射
+        # 定义状态顺序（从左到右）：Not Created - Not Picked - Picked - Packed - PGI
+        status_order = ["Not Created", "Not Picked", "Picked", "Packed", "PGI"]
+        
+        # 确保所有状态都在顺序列表中
+        existing_statuses = status_count["status"].unique()
+        for status in existing_statuses:
+            if status not in status_order:
+                status_order.append(status)
+        
+        # 将状态列转换为分类变量，按照指定的顺序
+        status_count["status"] = pd.Categorical(
+            status_count["status"], 
+            categories=status_order, 
+            ordered=True
+        )
+        
+        # 按照承运商和状态排序
+        status_count = status_count.sort_values(["Carrier Name", "status"])
+        
+        # 状态颜色映射 - Not Created改为紫色
         color_map = {
-            "PGI": "#32CD32",
+            "Not Created": "#9370DB",  # 紫色
+            "Not Picked": "#FFA500",
             "Picked": "#FF4500",
             "Packed": "#DC143C",
-            "Not Picked": "#FF8C00",
-            "Not Created": "#FFA500"
+            "PGI": "#32CD32"
         }
         
         # 创建图表
@@ -478,7 +426,8 @@ with chart_col1:
             barmode="stack",
             color_discrete_map=color_map,
             title="各承运商运单状态统计",
-            labels={"Carrier Name": "", "status": "运单状态", "计数": "数量"}  # 去掉y轴标题
+            labels={"Carrier Name": "", "status": "运单状态", "计数": "数量"},  # 去掉y轴标题
+            category_orders={"status": status_order}  # 确保状态顺序
         )
         
         # 更新图表字体和样式
@@ -502,7 +451,8 @@ with chart_col1:
             ),
             legend=dict(
                 title_font=dict(size=16, color="#000000", weight="bold"),
-                font=dict(size=14, color="#000000", weight="bold")
+                font=dict(size=14, color="#000000", weight="bold"),
+                traceorder='normal'  # 确保图例按照数据顺序显示
             )
         )
         
@@ -552,14 +502,15 @@ with chart_col1:
         st.plotly_chart(fig1, width='stretch')
 
 with chart_col2:
-    # 图表2：纵向堆积柱状图
+    # 图表2：纵向堆积柱状图 - 调整堆叠顺序：PGI在最底部，NonPGI在中间，Forecast在最顶部
     if df_forecast is not None and not df_forecast.empty:
         df_forecast_display = df_forecast.head(3).copy()
         df_forecast_display["Date"] = df_forecast_display["Date"].astype(str)
         
+        # 按照指定顺序进行melt：PGI, NonPGI, Forecast（PGI在最底部）
         df_forecast_long = df_forecast_display.melt(
             id_vars=["Date"],
-            value_vars=["NonPGI", "PGI", "Forecast"],
+            value_vars=["PGI", "NonPGI", "Forecast"],  # 调整顺序：PGI在最前面
             var_name="类型",
             value_name="数值"
         )
@@ -570,6 +521,19 @@ with chart_col2:
             "Forecast": "#FF8C00"
         }
         
+        # 定义类型顺序（从底部到顶部）：PGI, NonPGI, Forecast
+        type_order = ["PGI", "NonPGI", "Forecast"]
+        
+        # 将类型列转换为分类变量，按照指定的顺序
+        df_forecast_long["类型"] = pd.Categorical(
+            df_forecast_long["类型"], 
+            categories=type_order, 
+            ordered=True
+        )
+        
+        # 按照日期和类型排序
+        df_forecast_long = df_forecast_long.sort_values(["Date", "类型"])
+        
         fig2 = px.bar(
             df_forecast_long,
             x="Date",
@@ -577,7 +541,8 @@ with chart_col2:
             color="类型",
             barmode="stack",
             color_discrete_map=forecast_color_map,
-            title="近3日Forecast/PGI/NonPGI分布"
+            title="近3日Forecast/PGI/NonPGI分布",
+            category_orders={"类型": type_order}  # 确保类型顺序
         )
         
         # 添加目标线
@@ -586,7 +551,7 @@ with chart_col2:
             line_dash="dash",
             line_color="red",
             line_width=2,
-            annotation_text="目标值: 2333",
+            annotation_text="Capacity: 2333",
             annotation_position="top right"
         )
         
@@ -609,7 +574,8 @@ with chart_col2:
             ),
             legend=dict(
                 title_font=dict(size=16, color="#000000", weight="bold"),
-                font=dict(size=14, color="#000000", weight="bold")
+                font=dict(size=14, color="#000000", weight="bold"),
+                traceorder='normal'  # 确保图例按照数据顺序显示
             )
         )
         
